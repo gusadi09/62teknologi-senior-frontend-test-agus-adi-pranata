@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC68AFBD295F05390007AC96 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC68AFBC295F05390007AC96 /* HomeViewModel.swift */; };
 		ECD3ADEA295EFB150051647A /* BusinessListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD3ADE9295EFB150051647A /* BusinessListApp.swift */; };
 		ECD3ADEC295EFB150051647A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD3ADEB295EFB150051647A /* HomeView.swift */; };
 		ECD3ADEE295EFB180051647A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECD3ADED295EFB180051647A /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EC68AFBC295F05390007AC96 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		ECD3ADE6295EFB150051647A /* BusinessList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BusinessList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECD3ADE9295EFB150051647A /* BusinessListApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessListApp.swift; sourceTree = "<group>"; };
 		ECD3ADEB295EFB150051647A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -45,6 +47,7 @@
 		ECB57A74295F001400A50A2C /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				EC68AFBC295F05390007AC96 /* HomeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -188,6 +191,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECD3ADEC295EFB150051647A /* HomeView.swift in Sources */,
+				EC68AFBD295F05390007AC96 /* HomeViewModel.swift in Sources */,
 				ECD3ADEA295EFB150051647A /* BusinessListApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
