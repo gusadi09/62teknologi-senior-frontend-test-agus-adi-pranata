@@ -8,15 +8,16 @@
 import SwiftUI
 
 struct HomeView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-        }
-        .padding()
-    }
+	var body: some View {
+		List {
+			ForEach(0...6, id: \.self) { item in
+				Text("item \(item)")
+			}
+		}
+		.listStyle(.plain)
+		.navigationTitle(Text("Home"))
+		.navigationBarTitleDisplayMode(.large)
+	}
 }
 
 struct HomeView_Previews: PreviewProvider {

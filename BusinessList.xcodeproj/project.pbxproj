@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		EC68AFBD295F05390007AC96 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC68AFBC295F05390007AC96 /* HomeViewModel.swift */; };
+		EC68AFC229641E020007AC96 /* TabGroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC68AFC129641E020007AC96 /* TabGroupViewModel.swift */; };
+		EC68AFC429641E0F0007AC96 /* TabGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC68AFC329641E0F0007AC96 /* TabGroupView.swift */; };
 		ECD3ADEA295EFB150051647A /* BusinessListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD3ADE9295EFB150051647A /* BusinessListApp.swift */; };
 		ECD3ADEC295EFB150051647A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD3ADEB295EFB150051647A /* HomeView.swift */; };
 		ECD3ADEE295EFB180051647A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECD3ADED295EFB180051647A /* Assets.xcassets */; };
@@ -16,6 +18,8 @@
 
 /* Begin PBXFileReference section */
 		EC68AFBC295F05390007AC96 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		EC68AFC129641E020007AC96 /* TabGroupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabGroupViewModel.swift; sourceTree = "<group>"; };
+		EC68AFC329641E0F0007AC96 /* TabGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabGroupView.swift; sourceTree = "<group>"; };
 		ECD3ADE6295EFB150051647A /* BusinessList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BusinessList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECD3ADE9295EFB150051647A /* BusinessListApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessListApp.swift; sourceTree = "<group>"; };
 		ECD3ADEB295EFB150051647A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -35,6 +39,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EC68AFBE29641DE50007AC96 /* TabGroup */ = {
+			isa = PBXGroup;
+			children = (
+				EC68AFC029641DF40007AC96 /* ViewModel */,
+				EC68AFBF29641DF00007AC96 /* View */,
+			);
+			path = TabGroup;
+			sourceTree = "<group>";
+		};
+		EC68AFBF29641DF00007AC96 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EC68AFC329641E0F0007AC96 /* TabGroupView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EC68AFC029641DF40007AC96 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EC68AFC129641E020007AC96 /* TabGroupViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		ECB57A73295F000B00A50A2C /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +134,7 @@
 		ECD3ADE8295EFB150051647A /* BusinessList */ = {
 			isa = PBXGroup;
 			children = (
+				EC68AFBE29641DE50007AC96 /* TabGroup */,
 				ECB57A77295F002600A50A2C /* Common */,
 				ECB57A73295F000B00A50A2C /* Home */,
 				ECD3ADF0295EFB180051647A /* Preview Content */,
@@ -192,6 +222,8 @@
 			files = (
 				ECD3ADEC295EFB150051647A /* HomeView.swift in Sources */,
 				EC68AFBD295F05390007AC96 /* HomeViewModel.swift in Sources */,
+				EC68AFC229641E020007AC96 /* TabGroupViewModel.swift in Sources */,
+				EC68AFC429641E0F0007AC96 /* TabGroupView.swift in Sources */,
 				ECD3ADEA295EFB150051647A /* BusinessListApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
