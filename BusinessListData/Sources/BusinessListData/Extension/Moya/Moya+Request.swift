@@ -19,12 +19,22 @@ public extension MoyaProvider {
 					let jsonDecoder = JSONDecoder()
 					jsonDecoder.dateDecodingStrategy = .iso8601
 
-					do {
-						let decodedData = try jsonDecoder.decode(model.self, from: response.data)
+					if response.statusCode >= 200 && response.statusCode < 299 {
+						do {
+							let decodedData = try jsonDecoder.decode(model.self, from: response.data)
 
-						continuation.resume(returning: decodedData)
-					} catch (let error) {
-						continuation.resume(throwing: error)
+							continuation.resume(returning: decodedData)
+						} catch (let error) {
+							continuation.resume(throwing: error)
+						}
+					} else {
+						do {
+							let decodedData = try jsonDecoder.decode(ErrorResponse.self, from: response.data)
+
+							continuation.resume(throwing: decodedData)
+						} catch (let error) {
+							continuation.resume(throwing: error)
+						}
 					}
 				}
 			}

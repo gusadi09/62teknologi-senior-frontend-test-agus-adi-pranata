@@ -8,13 +8,13 @@
 import Foundation
 import Moya
 
-enum BusinessTargetType {
+public enum BusinessTargetType {
 	case getListOfBusinesses(BusinessesRequestParam)
 	case getDetailOfBusiness(String)
 }
 
 extension BusinessTargetType: BusinessAppTargetType, AccessTokenAuthorizable {
-	var authorizationType: Moya.AuthorizationType? {
+	public var authorizationType: Moya.AuthorizationType? {
 		switch self {
 		case .getDetailOfBusiness(_):
 			return .bearer
@@ -23,15 +23,15 @@ extension BusinessTargetType: BusinessAppTargetType, AccessTokenAuthorizable {
 		}
 	}
 
-	var parameterEncoding: Moya.ParameterEncoding {
+	public var parameterEncoding: Moya.ParameterEncoding {
 		URLEncoding.default
 	}
 
-	var task: Task {
+	public var task: Task {
 		return .requestParameters(parameters: parameters, encoding: parameterEncoding)
 	}
 
-	var parameters: [String : Any] {
+	public var parameters: [String : Any] {
 		switch self {
 		case .getListOfBusinesses(let param):
 			return param.toJSON()
@@ -40,7 +40,7 @@ extension BusinessTargetType: BusinessAppTargetType, AccessTokenAuthorizable {
 		}
 	}
 
-	var path: String {
+	public var path: String {
 		switch self {
 		case .getDetailOfBusiness(let id):
 			return "/businesses/\(id)"
@@ -49,7 +49,7 @@ extension BusinessTargetType: BusinessAppTargetType, AccessTokenAuthorizable {
 		}
 	}
 
-	var sampleData: Data {
+	public var sampleData: Data {
 		switch self {
 		case .getListOfBusinesses(_):
 			return BusinessResponse.sampleData
@@ -58,7 +58,7 @@ extension BusinessTargetType: BusinessAppTargetType, AccessTokenAuthorizable {
 		}
 	}
 
-	var method: Moya.Method {
+	public var method: Moya.Method {
 		switch self {
 		case .getDetailOfBusiness(_):
 			return .get
