@@ -52,3 +52,66 @@ public struct BusinessResponse: Codable {
 public struct RegionData: Codable {
 	let center: CoordinatesData?
 }
+
+public struct BusinessesRequestParam: Codable {
+	var location: String = "NYC"
+	var sortBy: String = "best_match"
+	var term: String = ""
+	var price: Int? = nil
+	var openNow: Bool? = nil
+	var attributes: String? = nil
+	var limit: Int = 10
+}
+
+public extension BusinessResponse {
+	static var sampleData: Data {
+		return BusinessResponse(
+			businesses: [
+				BusinessData(
+					id: UUID().uuidString,
+					alias: "starbucks-tests",
+					name: "Starbucks Tests",
+					imageUrl: "https://www.google.com/dsjdjasdhsjkd.jpg",
+					isClosed: false,
+					url: "https://www.google.com/",
+					reviewCount: 12,
+					categories: [
+						CategoriesData(
+							alias: "cafe",
+							title: "Cafe"
+						)
+					],
+					rating: 4.5,
+					coordinates: CoordinatesData(
+						latitude: -706.2324343434,
+						longitude: 113.2132321313
+					),
+					transactions: [
+						"delivery"
+					],
+					price: "$$",
+					location: LocationData(
+						address1: "NYC",
+						address2: "",
+						address3: "",
+						city: "NYC",
+						zipCode: "17510",
+						country: "US",
+						state: "NY",
+						displayAddress: ["New York City"]
+					),
+					phone: "+62121121001",
+					displayPhone: "(081) 21121001",
+					distance: 23.43434234
+				)
+			],
+			total: 1,
+			region: RegionData(
+				center: CoordinatesData(
+					latitude: -706.2324343434,
+					longitude: 113.2132321313
+				)
+			)
+		).toJSONData()
+	}
+}

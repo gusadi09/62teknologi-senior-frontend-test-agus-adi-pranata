@@ -8,13 +8,13 @@
 import Foundation
 import Moya
 
-protocol BusinessAppTargetType: TargetType {
+public protocol BusinessAppTargetType: TargetType {
 	var parameters: [String: Any] {
 		get
 	}
 }
 
-extension BusinessAppTargetType {
+public extension BusinessAppTargetType {
 	var baseURL: URL {
 		URL(
 			string: "https://api.yelp.com/v3"
