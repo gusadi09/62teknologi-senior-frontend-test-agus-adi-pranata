@@ -8,17 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		EC68AFBD295F05390007AC96 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC68AFBC295F05390007AC96 /* HomeViewModel.swift */; };
-		EC68AFC229641E020007AC96 /* TabGroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC68AFC129641E020007AC96 /* TabGroupViewModel.swift */; };
 		EC68AFC429641E0F0007AC96 /* TabGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC68AFC329641E0F0007AC96 /* TabGroupView.swift */; };
 		ECD3ADEA295EFB150051647A /* BusinessListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD3ADE9295EFB150051647A /* BusinessListApp.swift */; };
 		ECD3ADEC295EFB150051647A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD3ADEB295EFB150051647A /* HomeView.swift */; };
 		ECD3ADEE295EFB180051647A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECD3ADED295EFB180051647A /* Assets.xcassets */; };
 		ECD3ADF2295EFB180051647A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECD3ADF1295EFB180051647A /* Preview Assets.xcassets */; };
+		ECEFDE50296422A1007507CA /* BusinessListDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = ECEFDE4F296422A1007507CA /* BusinessListDesignSystem */; };
+		ECEFDE5229652443007507CA /* BusinessListData in Frameworks */ = {isa = PBXBuildFile; productRef = ECEFDE5129652443007507CA /* BusinessListData */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		EC68AFBC295F05390007AC96 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
-		EC68AFC129641E020007AC96 /* TabGroupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabGroupViewModel.swift; sourceTree = "<group>"; };
 		EC68AFC329641E0F0007AC96 /* TabGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabGroupView.swift; sourceTree = "<group>"; };
 		ECD3ADE6295EFB150051647A /* BusinessList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BusinessList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECD3ADE9295EFB150051647A /* BusinessListApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessListApp.swift; sourceTree = "<group>"; };
@@ -33,6 +33,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECEFDE5229652443007507CA /* BusinessListData in Frameworks */,
+				ECEFDE50296422A1007507CA /* BusinessListDesignSystem in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,7 +44,6 @@
 		EC68AFBE29641DE50007AC96 /* TabGroup */ = {
 			isa = PBXGroup;
 			children = (
-				EC68AFC029641DF40007AC96 /* ViewModel */,
 				EC68AFBF29641DF00007AC96 /* View */,
 			);
 			path = TabGroup;
@@ -54,14 +55,6 @@
 				EC68AFC329641E0F0007AC96 /* TabGroupView.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		EC68AFC029641DF40007AC96 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				EC68AFC129641E020007AC96 /* TabGroupViewModel.swift */,
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		ECB57A73295F000B00A50A2C /* Home */ = {
@@ -120,6 +113,7 @@
 			children = (
 				ECD3ADE8295EFB150051647A /* BusinessList */,
 				ECD3ADE7295EFB150051647A /* Products */,
+				ECEFDE4E296422A1007507CA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -150,6 +144,13 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		ECEFDE4E296422A1007507CA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -166,6 +167,10 @@
 			dependencies = (
 			);
 			name = BusinessList;
+			packageProductDependencies = (
+				ECEFDE4F296422A1007507CA /* BusinessListDesignSystem */,
+				ECEFDE5129652443007507CA /* BusinessListData */,
+			);
 			productName = BusinessList;
 			productReference = ECD3ADE6295EFB150051647A /* BusinessList.app */;
 			productType = "com.apple.product-type.application";
@@ -222,7 +227,6 @@
 			files = (
 				ECD3ADEC295EFB150051647A /* HomeView.swift in Sources */,
 				EC68AFBD295F05390007AC96 /* HomeViewModel.swift in Sources */,
-				EC68AFC229641E020007AC96 /* TabGroupViewModel.swift in Sources */,
 				EC68AFC429641E0F0007AC96 /* TabGroupView.swift in Sources */,
 				ECD3ADEA295EFB150051647A /* BusinessListApp.swift in Sources */,
 			);
@@ -442,6 +446,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		ECEFDE4F296422A1007507CA /* BusinessListDesignSystem */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = BusinessListDesignSystem;
+		};
+		ECEFDE5129652443007507CA /* BusinessListData */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = BusinessListData;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = ECD3ADDE295EFB150051647A /* Project object */;
 }

@@ -5,6 +5,7 @@
 //  Created by Gus Adi on 03/01/23.
 //
 
+import BusinessListDesignSystem
 import SwiftUI
 
 struct TabGroupView: View {
@@ -16,7 +17,7 @@ struct TabGroupView: View {
 			.tabItem {
 				VStack {
 					Image(systemName: "house.fill")
-					Text("Home")
+					Text(LocalizationText.homeTabText)
 				}
 			}
 
@@ -26,7 +27,7 @@ struct TabGroupView: View {
 			.tabItem {
 				VStack {
 					Image(systemName: "magnifyingglass")
-					Text("Search")
+					Text(LocalizationText.searchTabText)
 				}
 			}
 		}
