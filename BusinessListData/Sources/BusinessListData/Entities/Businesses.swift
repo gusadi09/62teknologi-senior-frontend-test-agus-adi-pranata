@@ -1,5 +1,5 @@
 //
-//  Business.swift
+//  Businesses.swift
 //  
 //
 //  Created by Gus Adi on 04/01/23.
@@ -8,7 +8,6 @@
 import Foundation
 
 public struct BusinessData: Codable, Hashable {
-
 
 	let id: String?
 	let alias: String?
