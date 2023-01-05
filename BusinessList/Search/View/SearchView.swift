@@ -73,8 +73,7 @@ extension SearchView {
 						selectedColor: .blue,
 						unselectedColor: .gray
 					) {
-						parentViewModel.query.sortBy = SortType.bestMatch.rawValue
-						parentViewModel.query.limit = 10
+						parentViewModel.changeSortType(by: SortType.bestMatch.rawValue)
 					}
 
 					CapsuleTextButton(
@@ -84,8 +83,7 @@ extension SearchView {
 						selectedColor: .blue,
 						unselectedColor: .gray
 					) {
-						parentViewModel.query.sortBy = SortType.rating.rawValue
-						parentViewModel.query.limit = 10
+						parentViewModel.changeSortType(by: SortType.rating.rawValue)
 					}
 
 					CapsuleTextButton(
@@ -95,8 +93,7 @@ extension SearchView {
 						selectedColor: .blue,
 						unselectedColor: .gray
 					) {
-						parentViewModel.query.sortBy = SortType.reviewCount.rawValue
-						parentViewModel.query.limit = 10
+						parentViewModel.changeSortType(by: SortType.reviewCount.rawValue)
 					}
 				}
 			}
@@ -121,13 +118,7 @@ extension SearchView {
 						selectedColor: .blue,
 						unselectedColor: .gray
 					) {
-						if parentViewModel.query.attributes == FilterType.hotAndNew.rawValue {
-							parentViewModel.query.attributes = nil
-						} else {
-							parentViewModel.query.attributes = FilterType.hotAndNew.rawValue
-						}
-
-						parentViewModel.query.limit = 10
+						parentViewModel.changeFilterType(by: FilterType.hotAndNew.rawValue)
 					}
 
 					CapsuleTextButton(
@@ -137,13 +128,7 @@ extension SearchView {
 						selectedColor: .blue,
 						unselectedColor: .gray
 					) {
-						if parentViewModel.query.attributes == FilterType.openToAll.rawValue {
-							parentViewModel.query.attributes = nil
-						} else {
-							parentViewModel.query.attributes = FilterType.openToAll.rawValue
-						}
-
-						parentViewModel.query.limit = 10
+						parentViewModel.changeFilterType(by: FilterType.openToAll.rawValue)
 					}
 
 					CapsuleTextButton(
@@ -153,13 +138,7 @@ extension SearchView {
 						selectedColor: .blue,
 						unselectedColor: .gray
 					) {
-						if parentViewModel.query.attributes == FilterType.deals.rawValue {
-							parentViewModel.query.attributes = nil
-						} else {
-							parentViewModel.query.attributes = FilterType.deals.rawValue
-						}
-
-						parentViewModel.query.limit = 10
+						parentViewModel.changeFilterType(by: FilterType.deals.rawValue)
 					}
 				}
 			}

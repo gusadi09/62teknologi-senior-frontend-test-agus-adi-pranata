@@ -45,6 +45,21 @@ final class SearchViewModel: ObservableObject {
 		isShowFilterSort.toggle()
 	}
 
+	func changeSortType(by value: String) {
+		query.sortBy = value
+		query.limit = 10
+	}
+
+	func changeFilterType(by value: String) {
+		if query.attributes == value {
+			query.attributes = nil
+		} else {
+			query.attributes = value
+		}
+
+		query.limit = 10
+	}
+
 	func onStartFetch() {
 		DispatchQueue.main.async { [weak self] in
 			self?.isError = false
