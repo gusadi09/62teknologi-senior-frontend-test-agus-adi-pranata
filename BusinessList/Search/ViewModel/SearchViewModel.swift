@@ -11,6 +11,7 @@ import Foundation
 final class SearchViewModel: ObservableObject {
 
 	private let repository: BusinessRepository
+	private var timer: Timer?
 
 	@Published var isLoading = false
 	@Published var isError = false
@@ -71,5 +72,19 @@ final class SearchViewModel: ObservableObject {
 				self?.errorMsg = err.localizedDescription
 			}
 		}
+	}
+
+	@objc func onSearch() {
+		Task {
+			await getListOfBusinesses()
+		}
+	}
+
+	func startSearch() {
+		if let timer = timer {
+			timer.invalidate()
+		}
+
+		timer = Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(onSearch), userInfo: nil, repeats: false)
 	}
 }

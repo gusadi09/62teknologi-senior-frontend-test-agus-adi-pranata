@@ -21,6 +21,10 @@ struct SearchView: View {
 		}
 		.navigationTitle(Text(LocalizationText.searchTabText))
 		.navigationBarTitleDisplayMode(.large)
+		.searchable(text: $viewModel.query.term)
+		.onChange(of: viewModel.query.term) { _ in
+			viewModel.startSearch()
+		}
 	}
 
 }
