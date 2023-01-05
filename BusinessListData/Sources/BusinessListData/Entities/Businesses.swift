@@ -115,7 +115,7 @@ public extension BusinessData {
 			id: UUID().uuidString,
 			alias: "starbucks-tests",
 			name: "Starbucks Tests",
-			imageUrl: "https://www.google.com/dsjdjasdhsjkd.jpg",
+			imageUrl: "https://res.cloudinary.com/demo/image/upload/v1312461204/sample.jpg",
 			isClosed: false,
 			url: "https://www.google.com/",
 			reviewCount: 12,

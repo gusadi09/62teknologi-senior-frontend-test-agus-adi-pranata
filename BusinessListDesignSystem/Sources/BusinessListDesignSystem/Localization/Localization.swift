@@ -19,4 +19,10 @@ public enum LocalizationText {
 		bundle: .module,
 		comment: "usage for tab text when on search page"
 	)
+
+	public static let closedText = NSLocalizedString(
+		"closed_text",
+		bundle: .module,
+		comment: "usage for closed text label"
+	)
 }

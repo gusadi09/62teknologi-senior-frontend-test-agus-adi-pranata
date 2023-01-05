@@ -28,7 +28,8 @@ let package = Package(
 			],
 			resources: [
 				.process("./Localization/String"),
-				.process("./Resource/Color")
+				.process("./Resource/Color"),
+				.process("./Resource/Image")
 			]
 		),
         .testTarget(
