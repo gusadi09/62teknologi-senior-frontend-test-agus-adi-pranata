@@ -8,6 +8,11 @@
 import Foundation
 
 public struct CategoriesData: Codable {
-	let alias: String?
-	let title: String?
+	public let alias: String?
+	public let title: String?
+
+	public init(alias: String?, title: String?) {
+		self.alias = alias
+		self.title = title
+	}
 }

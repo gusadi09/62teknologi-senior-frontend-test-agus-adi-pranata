@@ -8,33 +8,75 @@
 import Foundation
 
 public struct DetailBusinessResponse: Codable {
-	let id: String?
-	let alias: String?
-	let name: String?
-	let imageUrl: String?
-	let isClaimed: Bool?
-	let isClosed: Bool?
-	let url: String?
-	let phone: String?
-	let displayPhone: String?
-	let reviewCount: Int?
-	let categories: [CategoriesData]?
-	let rating: Double?
-	let location: LocationData?
-	let coordinates: CoordinatesData?
-	let photos: [String]?
-	let price: String?
-	let hours: [HoursData]?
-	let transactions: [String]?
-	let messaging: MessagingData?
+	public let id: String?
+	public let alias: String?
+	public let name: String?
+	public let imageUrl: String?
+	public let isClaimed: Bool?
+	public let isClosed: Bool?
+	public let url: String?
+	public let phone: String?
+	public let displayPhone: String?
+	public let reviewCount: Int?
+	public let categories: [CategoriesData]?
+	public let rating: Double?
+	public let location: LocationData?
+	public let coordinates: CoordinatesData?
+	public let photos: [String]?
+	public let price: String?
+	public let hours: [HoursData]?
+	public let transactions: [String]?
+	public let messaging: MessagingData?
 
-	enum CodingKeys: String, CodingKey {
+	public enum CodingKeys: String, CodingKey {
 		case id, alias, name, url, categories, rating, coordinates, transactions, price, location, phone, photos, messaging, hours
 		case imageUrl = "image_url"
 		case isClaimed = "is_claimed"
 		case isClosed = "is_closed"
 		case reviewCount = "review_count"
 		case displayPhone = "display_phone"
+	}
+
+	public init(
+		id: String?,
+		alias: String?,
+		name: String?,
+		imageUrl: String?,
+		isClaimed: Bool?,
+		isClosed: Bool?,
+		url: String?,
+		phone: String?,
+		displayPhone: String?,
+		reviewCount: Int?,
+		categories: [CategoriesData]?,
+		rating: Double?,
+		location: LocationData?,
+		coordinates: CoordinatesData?,
+		photos: [String]?,
+		price: String?,
+		hours: [HoursData]?,
+		transactions: [String]?,
+		messaging: MessagingData?
+	) {
+		self.id = id
+		self.alias = alias
+		self.name = name
+		self.imageUrl = imageUrl
+		self.isClaimed = isClaimed
+		self.isClosed = isClosed
+		self.url = url
+		self.phone = phone
+		self.displayPhone = displayPhone
+		self.reviewCount = reviewCount
+		self.categories = categories
+		self.rating = rating
+		self.location = location
+		self.coordinates = coordinates
+		self.photos = photos
+		self.price = price
+		self.hours = hours
+		self.transactions = transactions
+		self.messaging = messaging
 	}
 }
 
@@ -51,24 +93,36 @@ public struct HoursData: Codable {
 }
 
 public struct OpenData: Codable {
-	let isOvernight: Bool?
-	let start: String?
-	let end: String?
-	let day: Int?
+	public let isOvernight: Bool?
+	public let start: String?
+	public let end: String?
+	public let day: Int?
 
-	enum CodingKeys: String, CodingKey {
+	public enum CodingKeys: String, CodingKey {
 		case isOvernight = "is_overnight"
 		case start, end, day
+	}
+
+	public init(isOvernight: Bool?, start: String?, end: String?, day: Int?) {
+		self.isOvernight = isOvernight
+		self.start = start
+		self.end = end
+		self.day = day
 	}
 }
 
 public struct MessagingData: Codable {
-	let url: String?
-	let useCaseText: String?
+	public let url: String?
+	public let useCaseText: String?
 
-	enum CodingKeys: String, CodingKey {
+	public enum CodingKeys: String, CodingKey {
 		case url
 		case useCaseText = "use_case_text"
+	}
+
+	public init(url: String?, useCaseText: String?) {
+		self.url = url
+		self.useCaseText = useCaseText
 	}
 }
 

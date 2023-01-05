@@ -8,6 +8,11 @@
 import Foundation
 
 public struct CoordinatesData: Codable {
-	let latitude: Float?
-	let longitude: Float?
+	public let latitude: Float?
+	public let longitude: Float?
+
+	public init(latitude: Float?, longitude: Float?) {
+		self.latitude = latitude
+		self.longitude = longitude
+	}
 }

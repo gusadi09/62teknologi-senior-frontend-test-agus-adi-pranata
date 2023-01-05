@@ -9,24 +9,24 @@ import Foundation
 
 public struct BusinessData: Codable, Hashable {
 
-	let id: String?
-	let alias: String?
-	let name: String?
-	let imageUrl: String?
-	let isClosed: Bool?
-	let url: String?
-	let reviewCount: Int?
-	let categories: [CategoriesData]?
-	let rating: Double?
-	let coordinates: CoordinatesData?
-	let transactions: [String]?
-	let price: String?
-	let location: LocationData?
-	let phone: String?
-	let displayPhone: String?
-	let distance: Float?
+	public let id: String?
+	public let alias: String?
+	public let name: String?
+	public let imageUrl: String?
+	public let isClosed: Bool?
+	public let url: String?
+	public let reviewCount: Int?
+	public let categories: [CategoriesData]?
+	public let rating: Double?
+	public let coordinates: CoordinatesData?
+	public let transactions: [String]?
+	public let price: String?
+	public let location: LocationData?
+	public let phone: String?
+	public let displayPhone: String?
+	public let distance: Float?
 
-	enum CodingKeys: String, CodingKey {
+	public enum CodingKeys: String, CodingKey {
 		case id, alias, name, url, categories, rating, coordinates, transactions, price, location, phone, distance
 		case imageUrl = "image_url"
 		case isClosed = "is_closed"
@@ -41,26 +41,114 @@ public struct BusinessData: Codable, Hashable {
 	public func hash(into hasher: inout Hasher) {
 		hasher.combine(id)
 	}
+
+	public init(
+		id: String?,
+		alias: String?,
+		name: String?,
+		imageUrl: String?,
+		isClosed: Bool?,
+		url: String?,
+		reviewCount: Int?,
+		categories: [CategoriesData]?,
+		rating: Double?,
+		coordinates: CoordinatesData?,
+		transactions: [String]?,
+		price: String?,
+		location: LocationData?,
+		phone: String?,
+		displayPhone: String?,
+		distance: Float?
+	) {
+		self.id = id
+		self.alias = alias
+		self.name = name
+		self.imageUrl = imageUrl
+		self.isClosed = isClosed
+		self.url = url
+		self.reviewCount = reviewCount
+		self.categories = categories
+		self.rating = rating
+		self.coordinates = coordinates
+		self.transactions = transactions
+		self.price = price
+		self.location = location
+		self.phone = phone
+		self.displayPhone = displayPhone
+		self.distance = distance
+	}
 }
 
 public struct BusinessResponse: Codable {
-	let businesses: [BusinessData]?
-	let total: Int?
-	let region: RegionData?
+	public let businesses: [BusinessData]?
+	public let total: Int?
+	public let region: RegionData?
+
+	public init(businesses: [BusinessData]?, total: Int?, region: RegionData?) {
+		self.businesses = businesses
+		self.total = total
+		self.region = region
+	}
 }
 
 public struct RegionData: Codable {
-	let center: CoordinatesData?
+	public let center: CoordinatesData?
+
+	public init(center: CoordinatesData?) {
+		self.center = center
+	}
 }
 
 public struct BusinessesRequestParam: Codable {
-	var location: String = "NYC"
-	var sortBy: String = "best_match"
-	var term: String = ""
-	var price: Int? = nil
-	var openNow: Bool? = nil
-	var attributes: String? = nil
-	var limit: Int = 10
+	public var location: String = "NYC"
+	public var sortBy: String = "best_match"
+	public var term: String = ""
+	public var price: Int? = nil
+	public var openNow: Bool? = nil
+	public var attributes: String? = nil
+	public var limit: Int = 10
+}
+
+public extension BusinessData {
+	static var sample: BusinessData {
+		return BusinessData(
+			id: UUID().uuidString,
+			alias: "starbucks-tests",
+			name: "Starbucks Tests",
+			imageUrl: "https://www.google.com/dsjdjasdhsjkd.jpg",
+			isClosed: false,
+			url: "https://www.google.com/",
+			reviewCount: 12,
+			categories: [
+				CategoriesData(
+					alias: "cafe",
+					title: "Cafe"
+				)
+			],
+			rating: 4.5,
+			coordinates: CoordinatesData(
+				latitude: -706.2324343434,
+				longitude: 113.2132321313
+			),
+			transactions: [
+				"delivery"
+			],
+			price: "$$",
+			location: LocationData(
+				address1: "NYC",
+				address2: "",
+				address3: "",
+				city: "NYC",
+				zipCode: "17510",
+				country: "US",
+				state: "NY",
+				displayAddress: ["New York City"]
+			),
+			phone: "+62121121001",
+			displayPhone: "(081) 21121001",
+			distance: 23.43434234
+		)
+	}
 }
 
 public extension BusinessResponse {
