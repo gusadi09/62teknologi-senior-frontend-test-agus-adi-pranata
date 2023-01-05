@@ -70,6 +70,7 @@ extension SearchView {
 						selected: $parentViewModel.query.sortBy,
 						value: SortType.bestMatch.rawValue,
 						text: LocalizationText.bestMatchText,
+						textColor: .white,
 						selectedColor: .blue,
 						unselectedColor: .gray
 					) {
@@ -80,6 +81,7 @@ extension SearchView {
 						selected: $parentViewModel.query.sortBy,
 						value: SortType.rating.rawValue,
 						text: LocalizationText.bestRatingText,
+						textColor: .white,
 						selectedColor: .blue,
 						unselectedColor: .gray
 					) {
@@ -90,6 +92,7 @@ extension SearchView {
 						selected: $parentViewModel.query.sortBy,
 						value: SortType.reviewCount.rawValue,
 						text: LocalizationText.mostReviewedText,
+						textColor: .white,
 						selectedColor: .blue,
 						unselectedColor: .gray
 					) {
@@ -115,6 +118,7 @@ extension SearchView {
 						selected: $parentViewModel.query.attributes,
 						value: FilterType.hotAndNew.rawValue,
 						text: LocalizationText.hotAndNewText,
+						textColor: .white,
 						selectedColor: .blue,
 						unselectedColor: .gray
 					) {
@@ -125,6 +129,7 @@ extension SearchView {
 						selected: $parentViewModel.query.attributes,
 						value: FilterType.openToAll.rawValue,
 						text: LocalizationText.openToAllText,
+						textColor: .white,
 						selectedColor: .blue,
 						unselectedColor: .gray
 					) {
@@ -135,6 +140,7 @@ extension SearchView {
 						selected: $parentViewModel.query.attributes,
 						value: FilterType.deals.rawValue,
 						text: LocalizationText.bestDealsText,
+						textColor: .white,
 						selectedColor: .blue,
 						unselectedColor: .gray
 					) {
@@ -179,6 +185,9 @@ extension SearchView {
 						imageHeight: geo.size.height/3
 					)
 					.shadow(color: .BusinessDefault.basicWhiteBlack.opacity(0.15), radius: 5)
+					.onTapGesture {
+						
+					}
 					.onAppear(perform: {
 						parentViewModel.onGetNextPage(item: item)
 					})
