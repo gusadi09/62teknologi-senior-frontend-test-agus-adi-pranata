@@ -27,7 +27,8 @@ let package = Package(
 				"BusinessListData"
 			],
 			resources: [
-				.process("./Localization/String")
+				.process("./Localization/String"),
+				.process("./Resource/Color")
 			]
 		),
         .testTarget(
