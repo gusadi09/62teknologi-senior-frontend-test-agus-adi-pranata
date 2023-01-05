@@ -17,6 +17,8 @@ final class SearchViewModel: ObservableObject {
 	@Published var isError = false
 	@Published var errorMsg = ""
 
+	@Published var isShowFilterSort = false
+
 	@Published var query = BusinessesRequestParam(term: "")
 
 	@Published var businessesData = [BusinessData]()
@@ -37,6 +39,10 @@ final class SearchViewModel: ObservableObject {
 		Task {
 			await getListOfBusinesses()
 		}
+	}
+
+	func toogleFilter() {
+		isShowFilterSort.toggle()
 	}
 
 	func onStartFetch() {

@@ -99,28 +99,22 @@ public struct RegionData: Codable {
 	}
 }
 
-public enum SortType: String {
-	case bestMatch = "best_match"
-	case rating = "rating"
-	case reviewCount = "review_count"
-}
-
-public enum FilterType: String {
-	case hotAndNew = "hot_and_new"
-	case openToAll = "open_to_all"
-	case deals = "deals"
-}
-
 public struct BusinessesRequestParam: Codable {
 	public var location: String = "NYC"
-	public var sortBy: String = "best_match"
+	public var sortBy: String? = "best_match"
 	public var term: String
 	public var price: Int?
 	public var openNow: Bool?
 	public var attributes: String?
 	public var limit: Int
 
-	public init(location: String = "NYC", sortBy: String = SortType.bestMatch.rawValue, term: String, price: Int? = nil, openNow: Bool? = nil, attributes: String? = nil, limit: Int = 10) {
+	public enum CodingKeys: String, CodingKey {
+		case location, term, price, attributes, limit
+		case sortBy = "sort_by"
+		case openNow = "open_now"
+	}
+
+	public init(location: String = "NYC", sortBy: String? = SortType.bestMatch.rawValue, term: String, price: Int? = nil, openNow: Bool? = nil, attributes: String? = nil, limit: Int = 10) {
 		self.location = location
 		self.sortBy = sortBy
 		self.term = term

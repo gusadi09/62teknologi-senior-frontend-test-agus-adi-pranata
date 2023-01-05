@@ -9,3 +9,11 @@
 "home_tab_text" = "Beranda";
 "search_tab_text" = "Cari";
 "closed_text" = "Tutup";
+"filter_text" = "Saring";
+"sort_text" = "Urutkan";
+"best_match_text" = "Paling Cocok";
+"most_reviewed_text" = "Ulasan Terbanyak";
+"best_rating_text" = "Nilai Terbaik";
+"hot_and_new_text" = "Baru dan Hangat";
+"open_to_all_text" = "Terbuka Untuk Semua";
+"best_deals_text" = "Penawaran Terbaik";

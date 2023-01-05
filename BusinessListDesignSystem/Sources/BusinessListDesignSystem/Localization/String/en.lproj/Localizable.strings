@@ -9,3 +9,11 @@
 "home_tab_text" = "Home";
 "search_tab_text" = "Search";
 "closed_text" = "Closed";
+"filter_text" = "Filter";
+"sort_text" = "Sort";
+"best_match_text" = "Best Match";
+"most_reviewed_text" = "Most Reviews";
+"best_rating_text" = "Best Ratings";
+"hot_and_new_text" = "Hot and New";
+"open_to_all_text" = "Open to All";
+"best_deals_text" = "Best Deals";
