@@ -7,10 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EC68AFBD295F05390007AC96 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC68AFBC295F05390007AC96 /* HomeViewModel.swift */; };
-		EC68AFC429641E0F0007AC96 /* TabGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC68AFC329641E0F0007AC96 /* TabGroupView.swift */; };
+		EC68AFBD295F05390007AC96 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC68AFBC295F05390007AC96 /* SearchViewModel.swift */; };
 		ECD3ADEA295EFB150051647A /* BusinessListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD3ADE9295EFB150051647A /* BusinessListApp.swift */; };
-		ECD3ADEC295EFB150051647A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD3ADEB295EFB150051647A /* HomeView.swift */; };
+		ECD3ADEC295EFB150051647A /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD3ADEB295EFB150051647A /* SearchView.swift */; };
 		ECD3ADEE295EFB180051647A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECD3ADED295EFB180051647A /* Assets.xcassets */; };
 		ECD3ADF2295EFB180051647A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECD3ADF1295EFB180051647A /* Preview Assets.xcassets */; };
 		ECEFDE50296422A1007507CA /* BusinessListDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = ECEFDE4F296422A1007507CA /* BusinessListDesignSystem */; };
@@ -18,11 +17,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		EC68AFBC295F05390007AC96 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
-		EC68AFC329641E0F0007AC96 /* TabGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabGroupView.swift; sourceTree = "<group>"; };
+		EC68AFBC295F05390007AC96 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		ECD3ADE6295EFB150051647A /* BusinessList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BusinessList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECD3ADE9295EFB150051647A /* BusinessListApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessListApp.swift; sourceTree = "<group>"; };
-		ECD3ADEB295EFB150051647A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		ECD3ADEB295EFB150051647A /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		ECD3ADED295EFB180051647A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ECD3ADEF295EFB180051647A /* BusinessList.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BusinessList.entitlements; sourceTree = "<group>"; };
 		ECD3ADF1295EFB180051647A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -41,35 +39,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		EC68AFBE29641DE50007AC96 /* TabGroup */ = {
-			isa = PBXGroup;
-			children = (
-				EC68AFBF29641DF00007AC96 /* View */,
-			);
-			path = TabGroup;
-			sourceTree = "<group>";
-		};
-		EC68AFBF29641DF00007AC96 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				EC68AFC329641E0F0007AC96 /* TabGroupView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		ECB57A73295F000B00A50A2C /* Home */ = {
+		ECB57A73295F000B00A50A2C /* Search */ = {
 			isa = PBXGroup;
 			children = (
 				ECB57A76295F002000A50A2C /* View */,
 				ECB57A74295F001400A50A2C /* ViewModel */,
 			);
-			path = Home;
+			path = Search;
 			sourceTree = "<group>";
 		};
 		ECB57A74295F001400A50A2C /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				EC68AFBC295F05390007AC96 /* HomeViewModel.swift */,
+				EC68AFBC295F05390007AC96 /* SearchViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -77,7 +59,7 @@
 		ECB57A76295F002000A50A2C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				ECD3ADEB295EFB150051647A /* HomeView.swift */,
+				ECD3ADEB295EFB150051647A /* SearchView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -128,9 +110,8 @@
 		ECD3ADE8295EFB150051647A /* BusinessList */ = {
 			isa = PBXGroup;
 			children = (
-				EC68AFBE29641DE50007AC96 /* TabGroup */,
 				ECB57A77295F002600A50A2C /* Common */,
-				ECB57A73295F000B00A50A2C /* Home */,
+				ECB57A73295F000B00A50A2C /* Search */,
 				ECD3ADF0295EFB180051647A /* Preview Content */,
 			);
 			path = BusinessList;
@@ -225,9 +206,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECD3ADEC295EFB150051647A /* HomeView.swift in Sources */,
-				EC68AFBD295F05390007AC96 /* HomeViewModel.swift in Sources */,
-				EC68AFC429641E0F0007AC96 /* TabGroupView.swift in Sources */,
+				ECD3ADEC295EFB150051647A /* SearchView.swift in Sources */,
+				EC68AFBD295F05390007AC96 /* SearchViewModel.swift in Sources */,
 				ECD3ADEA295EFB150051647A /* BusinessListApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

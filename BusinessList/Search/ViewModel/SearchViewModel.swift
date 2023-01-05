@@ -7,6 +7,6 @@
 
 import Foundation
 
-final class HomeViewModel: ObservableObject {
+final class SearchViewModel: ObservableObject {
 	
 }

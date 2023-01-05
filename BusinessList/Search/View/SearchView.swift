@@ -1,13 +1,14 @@
 //
-//  HomeView.swift
+//  SearchView.swift
 //  BusinessList
 //
 //  Created by Gus Adi on 30/12/22.
 //
 
+import BusinessListDesignSystem
 import SwiftUI
 
-struct HomeView: View {
+struct SearchView: View {
 	var body: some View {
 		List {
 			ForEach(0...6, id: \.self) { item in
@@ -15,13 +16,13 @@ struct HomeView: View {
 			}
 		}
 		.listStyle(.plain)
-		.navigationTitle(Text("Home"))
+		.navigationTitle(Text(LocalizationText.searchTabText))
 		.navigationBarTitleDisplayMode(.large)
 	}
 }
 
-struct HomeView_Previews: PreviewProvider {
+struct SeearchView_Previews: PreviewProvider {
     static var previews: some View {
-		HomeView()
+		SearchView()
     }
 }
