@@ -14,7 +14,18 @@
 		ECD3ADF2295EFB180051647A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECD3ADF1295EFB180051647A /* Preview Assets.xcassets */; };
 		ECEFDE50296422A1007507CA /* BusinessListDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = ECEFDE4F296422A1007507CA /* BusinessListDesignSystem */; };
 		ECEFDE5229652443007507CA /* BusinessListData in Frameworks */ = {isa = PBXBuildFile; productRef = ECEFDE5129652443007507CA /* BusinessListData */; };
+		ECEFDE5A2967582D007507CA /* SearchViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEFDE592967582D007507CA /* SearchViewModelTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		ECEFDE5B2967582D007507CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ECD3ADDE295EFB150051647A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ECD3ADE5295EFB150051647A;
+			remoteInfo = BusinessList;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		EC68AFBC295F05390007AC96 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
@@ -24,6 +35,8 @@
 		ECD3ADED295EFB180051647A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ECD3ADEF295EFB180051647A /* BusinessList.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BusinessList.entitlements; sourceTree = "<group>"; };
 		ECD3ADF1295EFB180051647A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		ECEFDE572967582D007507CA /* BusinessListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BusinessListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECEFDE592967582D007507CA /* SearchViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +46,13 @@
 			files = (
 				ECEFDE5229652443007507CA /* BusinessListData in Frameworks */,
 				ECEFDE50296422A1007507CA /* BusinessListDesignSystem in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECEFDE542967582D007507CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				ECD3ADE8295EFB150051647A /* BusinessList */,
+				ECEFDE582967582D007507CA /* BusinessListTests */,
 				ECD3ADE7295EFB150051647A /* Products */,
 				ECEFDE4E296422A1007507CA /* Frameworks */,
 			);
@@ -103,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				ECD3ADE6295EFB150051647A /* BusinessList.app */,
+				ECEFDE572967582D007507CA /* BusinessListTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -132,6 +154,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		ECEFDE582967582D007507CA /* BusinessListTests */ = {
+			isa = PBXGroup;
+			children = (
+				ECEFDE592967582D007507CA /* SearchViewModelTests.swift */,
+			);
+			path = BusinessListTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -156,6 +186,24 @@
 			productReference = ECD3ADE6295EFB150051647A /* BusinessList.app */;
 			productType = "com.apple.product-type.application";
 		};
+		ECEFDE562967582D007507CA /* BusinessListTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ECEFDE5D2967582D007507CA /* Build configuration list for PBXNativeTarget "BusinessListTests" */;
+			buildPhases = (
+				ECEFDE532967582D007507CA /* Sources */,
+				ECEFDE542967582D007507CA /* Frameworks */,
+				ECEFDE552967582D007507CA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ECEFDE5C2967582D007507CA /* PBXTargetDependency */,
+			);
+			name = BusinessListTests;
+			productName = SearchViewModelTests;
+			productReference = ECEFDE572967582D007507CA /* BusinessListTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -168,6 +216,10 @@
 				TargetAttributes = {
 					ECD3ADE5295EFB150051647A = {
 						CreatedOnToolsVersion = 14.0.1;
+					};
+					ECEFDE562967582D007507CA = {
+						CreatedOnToolsVersion = 14.0.1;
+						TestTargetID = ECD3ADE5295EFB150051647A;
 					};
 				};
 			};
@@ -185,6 +237,7 @@
 			projectRoot = "";
 			targets = (
 				ECD3ADE5295EFB150051647A /* BusinessList */,
+				ECEFDE562967582D007507CA /* BusinessListTests */,
 			);
 		};
 /* End PBXProject section */
@@ -196,6 +249,13 @@
 			files = (
 				ECD3ADF2295EFB180051647A /* Preview Assets.xcassets in Resources */,
 				ECD3ADEE295EFB180051647A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECEFDE552967582D007507CA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,7 +272,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		ECEFDE532967582D007507CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECEFDE5A2967582D007507CA /* SearchViewModelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		ECEFDE5C2967582D007507CA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ECD3ADE5295EFB150051647A /* BusinessList */;
+			targetProxy = ECEFDE5B2967582D007507CA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		ECD3ADF3295EFB180051647A /* Debug */ = {
@@ -404,6 +480,50 @@
 			};
 			name = Release;
 		};
+		ECEFDE5E2967582D007507CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6M5M727687;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.challenge.SearchViewModelTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BusinessList.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BusinessList";
+			};
+			name = Debug;
+		};
+		ECEFDE5F2967582D007507CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6M5M727687;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.challenge.SearchViewModelTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BusinessList.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BusinessList";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -421,6 +541,15 @@
 			buildConfigurations = (
 				ECD3ADF6295EFB180051647A /* Debug */,
 				ECD3ADF7295EFB180051647A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ECEFDE5D2967582D007507CA /* Build configuration list for PBXNativeTarget "BusinessListTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECEFDE5E2967582D007507CA /* Debug */,
+				ECEFDE5F2967582D007507CA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
