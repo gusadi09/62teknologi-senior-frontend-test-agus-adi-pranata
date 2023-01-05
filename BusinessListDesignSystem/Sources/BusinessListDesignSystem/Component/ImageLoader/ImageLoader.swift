@@ -10,11 +10,13 @@ import SwiftUI
 public struct ImageLoader: View {
 
 	private let url: String
-	private let size: CGFloat
+	private let width: CGFloat
+	private let height: CGFloat
 
-	public init(url: String, size: CGFloat = .infinity) {
+	public init(url: String, width: CGFloat = .infinity, height: CGFloat = .infinity) {
 		self.url = url
-		self.size = size
+		self.width = width
+		self.height = height
 	}
 
     public var body: some View {
@@ -29,25 +31,25 @@ public struct ImageLoader: View {
 
 					Spacer()
 				}
-				.scaledToFit()
-				.frame(height: size)
+				.scaledToFill()
+				.frame(width: width, height: height)
 
 			case .failure(_):
 				Image.failureLoadImage
 					.resizable()
-					.scaledToFit()
-					.frame(height: size)
+					.scaledToFill()
+					.frame(width: width, height: height)
 
 			case .success(let image):
 				image
 					.resizable()
-					.scaledToFit()
-					.frame(height: size)
+					.scaledToFill()
+					.frame(width: width, height: height)
 			@unknown default:
 				Image.failureLoadImage
 					.resizable()
-					.scaledToFit()
-					.frame(height: size)
+					.scaledToFill()
+					.frame(width: width, height: height)
 			}
 		}
     }

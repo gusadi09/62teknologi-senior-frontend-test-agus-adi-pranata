@@ -28,10 +28,10 @@ public struct BusinessCardView: View {
 		VStack(alignment: .leading, spacing: 10) {
 			ImageLoader(
 				url: viewModel.cardData.imageUrl.orEmpty(),
-				size: imageWidth
+				width: imageWidth,
+				height: imageHeight
 			)
-			.frame(height: imageHeight)
-				.clipShape(RoundedRectangle(cornerRadius: 10))
+			.clipShape(RoundedRectangle(cornerRadius: 10))
 
 			HStack(alignment: .center) {
 				Text(viewModel.cardData.name.orEmpty())

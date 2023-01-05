@@ -9,19 +9,78 @@ import BusinessListDesignSystem
 import SwiftUI
 
 struct SearchView: View {
+
+	@ObservedObject var viewModel = SearchViewModel()
+
 	var body: some View {
-		List {
-			ForEach(0...6, id: \.self) { item in
-				Text("item \(item)")
-			}
+		GeometryReader { geo in
+			MainContent(parentViewModel: viewModel, geo: geo)
 		}
-		.listStyle(.plain)
+		.onAppear {
+			viewModel.onAppear()
+		}
 		.navigationTitle(Text(LocalizationText.searchTabText))
 		.navigationBarTitleDisplayMode(.large)
 	}
+
 }
 
-struct SeearchView_Previews: PreviewProvider {
+extension SearchView {
+	struct LoadingView: View {
+		var body: some View {
+			VStack {
+
+				Spacer()
+
+				HStack {
+					Spacer()
+
+					ProgressView()
+						.progressViewStyle(.circular)
+
+					Spacer()
+				}
+
+				Spacer()
+
+			}
+		}
+	}
+
+	struct MainContent: View {
+
+		@ObservedObject var parentViewModel: SearchViewModel
+		let geo: GeometryProxy
+
+		var body: some View {
+			List {
+				ForEach(parentViewModel.businessesData, id: \.id) { item in
+					BusinessCardView(
+						viewModel: BusinessCardViewModel(cardData: item),
+						imageWidth: geo.size.width/1.2,
+						imageHeight: geo.size.height/3
+					)
+					.shadow(color: .black.opacity(0.08), radius: 10)
+					.onAppear(perform: {
+						parentViewModel.onGetNextPage(item: item)
+					})
+					.listRowSeparator(.hidden)
+				}
+
+				if parentViewModel.isLoading {
+					LoadingView()
+						.listRowSeparator(.hidden)
+				}
+			}
+			.listStyle(.plain)
+			.refreshable {
+				await parentViewModel.getListOfBusinesses()
+			}
+		}
+	}
+}
+
+struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
 		SearchView()
     }
