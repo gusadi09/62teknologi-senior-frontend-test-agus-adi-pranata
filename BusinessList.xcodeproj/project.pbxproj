@@ -7,29 +7,49 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EC68AFBD295F05390007AC96 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC68AFBC295F05390007AC96 /* HomeViewModel.swift */; };
-		EC68AFC229641E020007AC96 /* TabGroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC68AFC129641E020007AC96 /* TabGroupViewModel.swift */; };
-		EC68AFC429641E0F0007AC96 /* TabGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC68AFC329641E0F0007AC96 /* TabGroupView.swift */; };
+		EC68AFBD295F05390007AC96 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC68AFBC295F05390007AC96 /* SearchViewModel.swift */; };
 		ECD3ADEA295EFB150051647A /* BusinessListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD3ADE9295EFB150051647A /* BusinessListApp.swift */; };
-		ECD3ADEC295EFB150051647A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD3ADEB295EFB150051647A /* HomeView.swift */; };
+		ECD3ADEC295EFB150051647A /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD3ADEB295EFB150051647A /* SearchView.swift */; };
 		ECD3ADEE295EFB180051647A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECD3ADED295EFB180051647A /* Assets.xcassets */; };
 		ECD3ADF2295EFB180051647A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECD3ADF1295EFB180051647A /* Preview Assets.xcassets */; };
+		ECEFDE50296422A1007507CA /* BusinessListDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = ECEFDE4F296422A1007507CA /* BusinessListDesignSystem */; };
+		ECEFDE5229652443007507CA /* BusinessListData in Frameworks */ = {isa = PBXBuildFile; productRef = ECEFDE5129652443007507CA /* BusinessListData */; };
+		ECEFDE5A2967582D007507CA /* SearchViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEFDE592967582D007507CA /* SearchViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		ECEFDE5B2967582D007507CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ECD3ADDE295EFB150051647A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ECD3ADE5295EFB150051647A;
+			remoteInfo = BusinessList;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
-		EC68AFBC295F05390007AC96 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
-		EC68AFC129641E020007AC96 /* TabGroupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabGroupViewModel.swift; sourceTree = "<group>"; };
-		EC68AFC329641E0F0007AC96 /* TabGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabGroupView.swift; sourceTree = "<group>"; };
+		EC68AFBC295F05390007AC96 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		ECD3ADE6295EFB150051647A /* BusinessList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BusinessList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECD3ADE9295EFB150051647A /* BusinessListApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessListApp.swift; sourceTree = "<group>"; };
-		ECD3ADEB295EFB150051647A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		ECD3ADEB295EFB150051647A /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		ECD3ADED295EFB180051647A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ECD3ADEF295EFB180051647A /* BusinessList.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BusinessList.entitlements; sourceTree = "<group>"; };
 		ECD3ADF1295EFB180051647A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		ECEFDE572967582D007507CA /* BusinessListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BusinessListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECEFDE592967582D007507CA /* SearchViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		ECD3ADE3295EFB150051647A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECEFDE5229652443007507CA /* BusinessListData in Frameworks */,
+				ECEFDE50296422A1007507CA /* BusinessListDesignSystem in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECEFDE542967582D007507CA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -39,44 +59,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		EC68AFBE29641DE50007AC96 /* TabGroup */ = {
-			isa = PBXGroup;
-			children = (
-				EC68AFC029641DF40007AC96 /* ViewModel */,
-				EC68AFBF29641DF00007AC96 /* View */,
-			);
-			path = TabGroup;
-			sourceTree = "<group>";
-		};
-		EC68AFBF29641DF00007AC96 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				EC68AFC329641E0F0007AC96 /* TabGroupView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		EC68AFC029641DF40007AC96 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				EC68AFC129641E020007AC96 /* TabGroupViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		ECB57A73295F000B00A50A2C /* Home */ = {
+		ECB57A73295F000B00A50A2C /* Search */ = {
 			isa = PBXGroup;
 			children = (
 				ECB57A76295F002000A50A2C /* View */,
 				ECB57A74295F001400A50A2C /* ViewModel */,
 			);
-			path = Home;
+			path = Search;
 			sourceTree = "<group>";
 		};
 		ECB57A74295F001400A50A2C /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				EC68AFBC295F05390007AC96 /* HomeViewModel.swift */,
+				EC68AFBC295F05390007AC96 /* SearchViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -84,7 +79,7 @@
 		ECB57A76295F002000A50A2C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				ECD3ADEB295EFB150051647A /* HomeView.swift */,
+				ECD3ADEB295EFB150051647A /* SearchView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -119,7 +114,9 @@
 			isa = PBXGroup;
 			children = (
 				ECD3ADE8295EFB150051647A /* BusinessList */,
+				ECEFDE582967582D007507CA /* BusinessListTests */,
 				ECD3ADE7295EFB150051647A /* Products */,
+				ECEFDE4E296422A1007507CA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				ECD3ADE6295EFB150051647A /* BusinessList.app */,
+				ECEFDE572967582D007507CA /* BusinessListTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -134,9 +132,8 @@
 		ECD3ADE8295EFB150051647A /* BusinessList */ = {
 			isa = PBXGroup;
 			children = (
-				EC68AFBE29641DE50007AC96 /* TabGroup */,
 				ECB57A77295F002600A50A2C /* Common */,
-				ECB57A73295F000B00A50A2C /* Home */,
+				ECB57A73295F000B00A50A2C /* Search */,
 				ECD3ADF0295EFB180051647A /* Preview Content */,
 			);
 			path = BusinessList;
@@ -148,6 +145,21 @@
 				ECD3ADF1295EFB180051647A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		ECEFDE4E296422A1007507CA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ECEFDE582967582D007507CA /* BusinessListTests */ = {
+			isa = PBXGroup;
+			children = (
+				ECEFDE592967582D007507CA /* SearchViewModelTests.swift */,
+			);
+			path = BusinessListTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,9 +178,31 @@
 			dependencies = (
 			);
 			name = BusinessList;
+			packageProductDependencies = (
+				ECEFDE4F296422A1007507CA /* BusinessListDesignSystem */,
+				ECEFDE5129652443007507CA /* BusinessListData */,
+			);
 			productName = BusinessList;
 			productReference = ECD3ADE6295EFB150051647A /* BusinessList.app */;
 			productType = "com.apple.product-type.application";
+		};
+		ECEFDE562967582D007507CA /* BusinessListTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ECEFDE5D2967582D007507CA /* Build configuration list for PBXNativeTarget "BusinessListTests" */;
+			buildPhases = (
+				ECEFDE532967582D007507CA /* Sources */,
+				ECEFDE542967582D007507CA /* Frameworks */,
+				ECEFDE552967582D007507CA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ECEFDE5C2967582D007507CA /* PBXTargetDependency */,
+			);
+			name = BusinessListTests;
+			productName = SearchViewModelTests;
+			productReference = ECEFDE572967582D007507CA /* BusinessListTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -182,6 +216,10 @@
 				TargetAttributes = {
 					ECD3ADE5295EFB150051647A = {
 						CreatedOnToolsVersion = 14.0.1;
+					};
+					ECEFDE562967582D007507CA = {
+						CreatedOnToolsVersion = 14.0.1;
+						TestTargetID = ECD3ADE5295EFB150051647A;
 					};
 				};
 			};
@@ -199,6 +237,7 @@
 			projectRoot = "";
 			targets = (
 				ECD3ADE5295EFB150051647A /* BusinessList */,
+				ECEFDE562967582D007507CA /* BusinessListTests */,
 			);
 		};
 /* End PBXProject section */
@@ -213,6 +252,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		ECEFDE552967582D007507CA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -220,15 +266,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECD3ADEC295EFB150051647A /* HomeView.swift in Sources */,
-				EC68AFBD295F05390007AC96 /* HomeViewModel.swift in Sources */,
-				EC68AFC229641E020007AC96 /* TabGroupViewModel.swift in Sources */,
-				EC68AFC429641E0F0007AC96 /* TabGroupView.swift in Sources */,
+				ECD3ADEC295EFB150051647A /* SearchView.swift in Sources */,
+				EC68AFBD295F05390007AC96 /* SearchViewModel.swift in Sources */,
 				ECD3ADEA295EFB150051647A /* BusinessListApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		ECEFDE532967582D007507CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECEFDE5A2967582D007507CA /* SearchViewModelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		ECEFDE5C2967582D007507CA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ECD3ADE5295EFB150051647A /* BusinessList */;
+			targetProxy = ECEFDE5B2967582D007507CA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		ECD3ADF3295EFB180051647A /* Debug */ = {
@@ -420,6 +480,50 @@
 			};
 			name = Release;
 		};
+		ECEFDE5E2967582D007507CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6M5M727687;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.challenge.SearchViewModelTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BusinessList.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BusinessList";
+			};
+			name = Debug;
+		};
+		ECEFDE5F2967582D007507CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6M5M727687;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.challenge.SearchViewModelTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BusinessList.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BusinessList";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -441,7 +545,27 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		ECEFDE5D2967582D007507CA /* Build configuration list for PBXNativeTarget "BusinessListTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECEFDE5E2967582D007507CA /* Debug */,
+				ECEFDE5F2967582D007507CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		ECEFDE4F296422A1007507CA /* BusinessListDesignSystem */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = BusinessListDesignSystem;
+		};
+		ECEFDE5129652443007507CA /* BusinessListData */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = BusinessListData;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = ECD3ADDE295EFB150051647A /* Project object */;
 }

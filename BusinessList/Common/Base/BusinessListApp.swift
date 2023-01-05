@@ -11,7 +11,9 @@ import SwiftUI
 struct BusinessListApp: App {
     var body: some Scene {
         WindowGroup {
-			TabGroupView()
+			NavigationStack {
+				SearchView()
+			}
         }
     }
 }
