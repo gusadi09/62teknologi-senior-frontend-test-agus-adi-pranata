@@ -41,11 +41,13 @@ final class BusinessStubHelper: ObservableObject {
 
 	@Published var detail: DetailBusinessResponse?
 
+	@Published var reviews = [ReviewData]()
+
 	@Published var errorMsg = ""
 
 	func stubGetListOfBusiness() async {
 		do {
-			let result = try await self.stubProvider.request(.getListOfBusinesses(BusinessesRequestParam()), model: BusinessResponse.self)
+			let result = try await self.stubProvider.request(.getListOfBusinesses(BusinessesRequestParam(term: "")), model: BusinessResponse.self)
 
 			listResult = result.businesses ?? []
 		} catch (let error as ErrorResponse) {
@@ -67,9 +69,21 @@ final class BusinessStubHelper: ObservableObject {
 		}
 	}
 
+	func stubGetReviewsOfBusiness() async {
+		do {
+			let result = try await self.stubProvider.request(.getReviewsOfBusiness("alias"), model: ReviewsResponse.self)
+
+			reviews = result.reviews ?? []
+		} catch (let error as ErrorResponse) {
+			errorMsg = (error.error?.code).orEmpty()
+		} catch (let err) {
+			errorMsg = err.localizedDescription
+		}
+	}
+
 	func stubErrorOfListBusinessRequest() async {
 		do {
-			let result = try await self.errorStubProvider.request(.getListOfBusinesses(BusinessesRequestParam()), model: BusinessResponse.self)
+			let result = try await self.errorStubProvider.request(.getListOfBusinesses(BusinessesRequestParam(term: "")), model: BusinessResponse.self)
 
 			listResult = result.businesses ?? []
 		} catch (let error as ErrorResponse) {
@@ -86,6 +100,20 @@ final class BusinessStubHelper: ObservableObject {
 			let result = try await self.errorStubProvider.request(.getDetailOfBusiness("unittestid"), model: DetailBusinessResponse.self)
 
 			detail = result
+		} catch (let error as ErrorResponse) {
+			print("============Errr")
+			errorMsg = (error.error?.code).orEmpty()
+		} catch (let err) {
+			print("============Errror")
+			errorMsg = err.localizedDescription
+		}
+	}
+
+	func stubErrorOfReviewsBusinessRequest() async {
+		do {
+			let result = try await self.errorStubProvider.request(.getReviewsOfBusiness("alias"), model: ReviewsResponse.self)
+
+			reviews = result.reviews ?? []
 		} catch (let error as ErrorResponse) {
 			print("============Errr")
 			errorMsg = (error.error?.code).orEmpty()

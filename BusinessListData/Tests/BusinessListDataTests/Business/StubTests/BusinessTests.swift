@@ -53,4 +53,28 @@ final class BusinessTests: XCTestCase {
 
 		XCTAssertEqual(helper.errorMsg, "NOT_AUTHORIZED")
 	}
+
+	func test_success_getReviewsOfBusinesses() async throws {
+		let expectation = self.expectation(description: "ReviewsOfBusinesses")
+
+		await helper.stubGetReviewsOfBusiness()
+
+		expectation.fulfill()
+
+		await waitForExpectations(timeout: 5)
+
+		XCTAssertEqual(helper.reviews.count, 1)
+	}
+
+	func test_errorUnauthorized_getReviewsOfBusinesses() async throws {
+		let expectation = self.expectation(description: "ErrorReviewsOfBusinesses")
+
+		await helper.stubErrorOfReviewsBusinessRequest()
+
+		expectation.fulfill()
+
+		await waitForExpectations(timeout: 5)
+
+		XCTAssertEqual(helper.errorMsg, "NOT_AUTHORIZED")
+	}
 }

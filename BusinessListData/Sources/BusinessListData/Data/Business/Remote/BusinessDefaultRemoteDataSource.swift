@@ -23,4 +23,8 @@ public final class BusinessDefaultRemoteDataSource: BusinessRemoteDataSource {
 	public func getDetailOfBusiness(id: String) async throws -> DetailBusinessResponse {
 		try await self.provider.request(.getDetailOfBusiness(id), model: DetailBusinessResponse.self)
 	}
+
+	public func getReviewsOfBusiness(alias: String) async throws -> ReviewsResponse {
+		try await self.provider.request(.getReviewsOfBusiness(alias), model: ReviewsResponse.self)
+	}
 }

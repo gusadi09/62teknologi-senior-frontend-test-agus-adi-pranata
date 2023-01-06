@@ -36,4 +36,16 @@ final class BusinessRepositoryTests: XCTestCase {
 
 		XCTAssertNotNil(detail.name)
 	}
+
+	func test_getReviewsOfBusiness() async throws {
+		let expectation = self.expectation(description: "ReviewsOfBusinessesReal")
+
+		let result = try await repository.provideGetReviewsOfBusiness(by: "levain-bakery-new-york")
+
+		expectation.fulfill()
+
+		await waitForExpectations(timeout: 5)
+
+		XCTAssertNotNil(result.reviews)
+	}
 }
