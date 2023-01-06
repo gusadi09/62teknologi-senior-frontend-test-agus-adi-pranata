@@ -11,7 +11,7 @@ import Moya
 public enum BusinessTargetType {
 	case getListOfBusinesses(BusinessesRequestParam)
 	case getDetailOfBusiness(String)
-	case getReviewsOfBusiness(String)
+	case getReviewsOfBusiness(String, ReviewsQueryParam)
 }
 
 extension BusinessTargetType: BusinessAppTargetType, AccessTokenAuthorizable {
@@ -33,8 +33,8 @@ extension BusinessTargetType: BusinessAppTargetType, AccessTokenAuthorizable {
 			return param.toJSON()
 		case .getDetailOfBusiness(_):
 			return [:]
-		case .getReviewsOfBusiness(_):
-			return [:]
+		case .getReviewsOfBusiness(_, let query):
+			return query.toJSON()
 		}
 	}
 
@@ -44,7 +44,7 @@ extension BusinessTargetType: BusinessAppTargetType, AccessTokenAuthorizable {
 			return "/businesses/\(id)"
 		case .getListOfBusinesses(_):
 			return "/businesses/search"
-		case .getReviewsOfBusiness(let id):
+		case .getReviewsOfBusiness(let id, _):
 			return "/businesses/\(id)/reviews"
 		}
 	}
@@ -55,7 +55,7 @@ extension BusinessTargetType: BusinessAppTargetType, AccessTokenAuthorizable {
 			return BusinessResponse.sampleData
 		case .getDetailOfBusiness(_):
 			return DetailBusinessResponse.sampleData
-		case .getReviewsOfBusiness(_):
+		case .getReviewsOfBusiness(_, _):
 			return	ReviewsResponse.sampleData
 		}
 	}

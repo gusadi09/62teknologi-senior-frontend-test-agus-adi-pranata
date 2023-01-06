@@ -186,11 +186,13 @@ extension SearchView {
 						imageWidth: geo.size.width/1.2,
 						imageHeight: geo.size.height/3
 					)
-					.shadow(color: .BusinessDefault.basicWhiteBlack.opacity(0.15), radius: 5)
+					.shadow(color: .BusinessDefault.basicWhiteBlack.opacity(0.2), radius: 5)
 					.background(
-						NavigationLink(value: item) {
+						NavigationLink(destination: {
+							DetailView(viewModel: DetailViewModel(alias: item.alias.orEmpty(), name: item.name.orEmpty()))
+						}, label: {
 							EmptyView()
-						}
+						})
 					)
 					.onAppear(perform: {
 						parentViewModel.onGetNextPage(item: item)
@@ -206,9 +208,6 @@ extension SearchView {
 			.listStyle(.plain)
 			.refreshable {
 				await parentViewModel.getListOfBusinesses()
-			}
-			.navigationDestination(for: BusinessData.self) { item in
-				DetailView(viewModel: DetailViewModel(alias: item.alias.orEmpty()))
 			}
 		}
 	}

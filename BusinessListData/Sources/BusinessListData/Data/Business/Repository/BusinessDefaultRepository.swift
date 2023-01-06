@@ -23,7 +23,7 @@ public final class BusinessDefaultRepository: BusinessRepository {
 		try await self.remote.getDetailOfBusiness(id: id)
 	}
 
-	public func provideGetReviewsOfBusiness(by alias: String) async throws -> ReviewsResponse {
-		try await self.remote.getReviewsOfBusiness(alias: alias)
+	public func provideGetReviewsOfBusiness(by alias: String, with query: ReviewsQueryParam) async throws -> ReviewsResponse {
+		try await self.remote.getReviewsOfBusiness(alias: alias, query: query)
 	}
 }

@@ -7,6 +7,7 @@
 
 import BusinessListDesignSystem
 import SwiftUI
+import CoreLocation
 
 struct DetailView: View {
 
@@ -14,72 +15,97 @@ struct DetailView: View {
 
 	var body: some View {
 		GeometryReader { geo in
-			ScrollViewReader { proxy in
-				ZStack(alignment: .bottomTrailing) {
-					ScrollView {
-						LazyVStack(spacing: 20) {
-							TabView {
-								ForEach(0...3, id: \.self) { _ in
-									ImageLoader(url: "https://images.seattletimes.com/wp-content/uploads/2022/05/202205171247MCT_____PHOTO____BIZ-WRK-CPT-GOOGLE-CAMPUS-SJ.jpg", width: geo.size.width, height: geo.size.height/3)
-								}
-
+			ZStack {
+				ScrollView {
+					LazyVStack(spacing: 20) {
+						TabView {
+							ForEach(viewModel.detail?.photos ?? [], id: \.self) { item in
+								ImageLoader(url: item, width: geo.size.width, height: geo.size.height/3)
 							}
-							.tabViewStyle(.page(indexDisplayMode: .always))
-							.tag("top")
-							.id("top")
-							.frame(width: geo.size.width, height: geo.size.height/3)
 
-							VStack(spacing: 10) {
-								Text("Levain Bakery")
-									.font(.system(size: 16, weight: .bold))
+						}
+						.tabViewStyle(.page(indexDisplayMode: .always))
+						.tag("top")
+						.id("top")
+						.frame(width: geo.size.width, height: geo.size.height/3)
+
+						VStack(spacing: 10) {
+							Text((viewModel.name))
+								.font(.system(size: 16, weight: .bold))
+								.foregroundColor(.BusinessDefault.primary)
+
+							HStack(alignment: .top, spacing: 5) {
+								Image(systemName: "mappin")
 									.foregroundColor(.BusinessDefault.primary)
 
-								HStack(alignment: .top, spacing: 5) {
-									Image(systemName: "mappin")
-										.foregroundColor(.BusinessDefault.primary)
-
-									Text("New York City")
-										.foregroundColor(.BusinessDefault.primary)
-								}
+								Text(viewModel.displayStreetText())
+									.foregroundColor(.BusinessDefault.primary)
 							}
-
-							ShortDetailSection(parentViewModel: viewModel)
-								.padding(.horizontal)
-
-							OpeningHoursSection(parentViewModel: viewModel)
-								.padding(.horizontal)
-
-							MapView(parentViewModel: viewModel, geo: geo)
-								.padding(.horizontal)
-						}
-					}
-					.refreshable {
-
-					}
-
-					Button {
-						withAnimation(.spring()) {
-							proxy.scrollTo("top")
 						}
 
-					} label: {
-						Image(systemName: "chevron.up")
-							.font(.system(size: 20, weight: .bold, design: .rounded))
-							.padding()
-							.background(
-								Circle()
-									.foregroundColor(.BusinessDefault.transversalBlackWhite)
-									.shadow(color: .BusinessDefault.basicWhiteBlack.opacity(0.1), radius: 10)
-							)
-					}
-					.padding(.horizontal)
+						ShortDetailSection(parentViewModel: viewModel)
+							.padding(.horizontal)
 
+						OpeningHoursSection(parentViewModel: viewModel)
+							.padding(.horizontal)
+
+						LazyVStack(alignment: .leading, pinnedViews: .sectionHeaders) {
+
+							Section {
+								MapView(parentViewModel: viewModel, geo: geo)
+									.padding(.horizontal)
+							} header: {
+								Text(LocalizationText.locationText)
+									.font(.system(size: 16, weight: .bold))
+									.foregroundColor(.BusinessDefault.primary)
+									.padding(.horizontal)
+									.padding(.vertical, 10)
+									.frame(maxWidth: .infinity, alignment: .leading)
+									.background(Color.BusinessDefault.transversalBlackWhite)
+							}
+						}
+
+						LazyVStack(alignment: .leading, pinnedViews: .sectionHeaders) {
+
+							Section {
+								ReviewSection(parentViewModel: viewModel)
+							} header: {
+								Text(LocalizationText.reviewsText)
+									.font(.system(size: 16, weight: .bold))
+									.foregroundColor(.BusinessDefault.primary)
+									.padding(.horizontal)
+									.padding(.vertical, 10)
+									.frame(maxWidth: .infinity, alignment: .leading)
+									.background(Color.BusinessDefault.transversalBlackWhite)
+							}
+						}
+
+						if viewModel.isLoadingReview {
+							HStack {
+								Spacer()
+								ProgressView()
+									.progressViewStyle(.circular)
+								Spacer()
+							}
+						}
+					}
+				}
+				.refreshable {
+					viewModel.onRefresh()
 				}
 
+				if viewModel.isLoading {
+
+					ProgressView()
+						.progressViewStyle(.circular)
+						.padding(40)
+						.background(.ultraThinMaterial)
+						.clipShape(RoundedRectangle(cornerRadius: 10))
+				}
 			}
 
 		}
-		.navigationTitle(Text("Businesses Name"))
+		.navigationTitle(Text(viewModel.name))
 		.navigationBarTitleDisplayMode(.inline)
 		.toolbar {
 			Button {
@@ -89,6 +115,9 @@ struct DetailView: View {
 			}
 
 		}
+		.onAppear(perform: {
+			viewModel.onAppear()
+		})
 	}
 }
 
@@ -102,20 +131,20 @@ extension DetailView {
 				HStack(alignment: .center) {
 					VStack(alignment: .leading, spacing: 5) {
 						HStack {
-							Text("Price Range:")
+							Text(LocalizationText.priceRangeText)
 								.font(.system(size: 14, weight: .bold))
 
 							Spacer()
 						}
 
-						Text("$$ (Moderate)")
+						Text(parentViewModel.priceRangeText())
 							.font(.system(size: 12, weight: .semibold))
 							.foregroundColor(.BusinessDefault.primary)
 					}
 
 					Spacer()
 
-					if true {
+					if parentViewModel.detail?.isClosed ?? false {
 						Text(LocalizationText.closedText)
 							.font(.system(size: 12, weight: .semibold))
 							.foregroundColor(.red)
@@ -135,13 +164,13 @@ extension DetailView {
 				HStack(alignment: .center) {
 					VStack(alignment: .leading, spacing: 5) {
 						HStack {
-							Text("Categories:")
+							Text(LocalizationText.categoriesText)
 								.font(.system(size: 14, weight: .bold))
 
 							Spacer()
 						}
 
-						Text("Cafe, Bakeries")
+						Text(parentViewModel.categoriesText())
 							.font(.system(size: 12, weight: .semibold))
 							.foregroundColor(.BusinessDefault.primary)
 					}
@@ -152,7 +181,7 @@ extension DetailView {
 						HStack {
 
 							Spacer()
-							Text("Rating:")
+							Text(LocalizationText.ratingText)
 								.font(.system(size: 14, weight: .bold))
 						}
 
@@ -162,7 +191,12 @@ extension DetailView {
 								.foregroundColor(.yellow)
 
 							Text(
-								String(format: "%.1f", 4.5)
+								String(
+									format: "%.1f",
+									(
+										parentViewModel.detail?.rating
+									).orZero()
+								)
 							)
 							.font(.system(size: 12, weight: .semibold))
 							.foregroundColor(.BusinessDefault.primary)
@@ -172,26 +206,26 @@ extension DetailView {
 
 				VStack(alignment: .leading, spacing: 5) {
 					HStack {
-						Text("Phone:")
+						Text(LocalizationText.phoneText)
 							.font(.system(size: 14, weight: .bold))
 
 						Spacer()
 					}
 
-					Text("08378278723")
+					Text((parentViewModel.detail?.displayPhone).orEmpty())
 						.font(.system(size: 12, weight: .semibold))
 						.foregroundColor(.BusinessDefault.primary)
 				}
 
 				VStack(alignment: .leading, spacing: 5) {
 					HStack {
-						Text("Available Special Transaction:")
+						Text(LocalizationText.featuredTransactionText)
 							.font(.system(size: 14, weight: .bold))
 
 						Spacer()
 					}
 
-					Text("Delivery, QRIS")
+					Text(parentViewModel.transactionText())
 						.font(.system(size: 12, weight: .semibold))
 						.foregroundColor(.BusinessDefault.primary)
 				}
@@ -200,7 +234,7 @@ extension DetailView {
 			.background(
 				RoundedRectangle(cornerRadius: 10)
 					.foregroundColor(.BusinessDefault.transversalBlackWhite)
-					.shadow(color: .BusinessDefault.basicWhiteBlack.opacity(0.1),radius: 8)
+					.shadow(color: .BusinessDefault.basicWhiteBlack.opacity(0.2),radius: 8)
 			)
 		}
 	}
@@ -213,14 +247,14 @@ extension DetailView {
 				HStack(alignment: .center) {
 					VStack(alignment: .leading, spacing: 5) {
 						HStack {
-							Text("Open Hours:")
+							Text(LocalizationText.openHoursText)
 								.font(.system(size: 14, weight: .bold))
 
 							Spacer()
 						}
 
-						ForEach(0...6, id: \.self) { _ in
-							Text("Monday (08:00 - 21:00)")
+						ForEach(parentViewModel.openingHours(), id: \.self) { item in
+							Text(item)
 								.font(.system(size: 12, weight: .semibold))
 								.foregroundColor(.BusinessDefault.primary)
 						}
@@ -231,7 +265,7 @@ extension DetailView {
 			.background(
 				RoundedRectangle(cornerRadius: 10)
 					.foregroundColor(.BusinessDefault.transversalBlackWhite)
-					.shadow(color: .BusinessDefault.basicWhiteBlack.opacity(0.1),radius: 8)
+					.shadow(color: .BusinessDefault.basicWhiteBlack.opacity(0.2),radius: 8)
 			)
 		}
 	}
@@ -241,9 +275,18 @@ extension DetailView {
 		let geo: GeometryProxy
 
 		var body: some View {
-			MapsView(markerTitle: "Levain Bakery", markerSnippet: "New York", latitude: 40.779961, longitude: -73.980299)
-				.frame(height: geo.size.height/4)
-				.cornerRadius(10)
+			MapsView(
+				markerTitle: (parentViewModel.detail?.name).orEmpty(),
+				markerSnippet: (parentViewModel.displayStreetText()),
+				latitude: CLLocationDegrees(
+					(parentViewModel.detail?.coordinates?.latitude ?? 0.0)
+				),
+				longitude: CLLocationDegrees(
+					(parentViewModel.detail?.coordinates?.longitude ?? 0.0)
+				)
+			)
+			.frame(height: geo.size.height/4)
+			.cornerRadius(10)
 		}
 	}
 
@@ -252,13 +295,25 @@ extension DetailView {
 		@ObservedObject var parentViewModel: DetailViewModel
 
 		var body: some View {
-			Text("Review")
+			LazyVStack(spacing: 10) {
+				ForEach(parentViewModel.reviews, id: \.id) { item in
+					ReviewCard(data: item)
+						.padding(.horizontal)
+						.padding(.vertical, 5)
+						.onAppear {
+							parentViewModel.onGetNextPage(item: item)
+						}
+
+					Divider()
+						.padding(.leading)
+				}
+			}
 		}
 	}
 }
 
 struct DetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        DetailView(viewModel: DetailViewModel(alias: ""))
-    }
+	static var previews: some View {
+		DetailView(viewModel: DetailViewModel(alias: "", name: ""))
+	}
 }

@@ -71,7 +71,7 @@ final class BusinessStubHelper: ObservableObject {
 
 	func stubGetReviewsOfBusiness() async {
 		do {
-			let result = try await self.stubProvider.request(.getReviewsOfBusiness("alias"), model: ReviewsResponse.self)
+			let result = try await self.stubProvider.request(.getReviewsOfBusiness("alias", ReviewsQueryParam()), model: ReviewsResponse.self)
 
 			reviews = result.reviews ?? []
 		} catch (let error as ErrorResponse) {
@@ -111,7 +111,7 @@ final class BusinessStubHelper: ObservableObject {
 
 	func stubErrorOfReviewsBusinessRequest() async {
 		do {
-			let result = try await self.errorStubProvider.request(.getReviewsOfBusiness("alias"), model: ReviewsResponse.self)
+			let result = try await self.errorStubProvider.request(.getReviewsOfBusiness("alias", ReviewsQueryParam()), model: ReviewsResponse.self)
 
 			reviews = result.reviews ?? []
 		} catch (let error as ErrorResponse) {

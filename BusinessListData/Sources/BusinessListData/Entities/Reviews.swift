@@ -7,6 +7,21 @@
 
 import Foundation
 
+public struct ReviewsQueryParam: Codable {
+	public var limit: Int
+	public var sortBy: String
+
+	public enum CodingKeys: String, CodingKey {
+		case limit
+		case sortBy = "sort_by"
+	}
+
+	public init(limit: Int = 10, sortBy: String = "newest") {
+		self.limit = limit
+		self.sortBy = sortBy
+	}
+}
+
 public struct ReviewsResponse: Codable {
 	public let reviews: [ReviewData]?
 	public let total: Int?

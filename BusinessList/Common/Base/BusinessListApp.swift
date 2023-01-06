@@ -12,7 +12,7 @@ import SwiftUI
 struct BusinessListApp: App {
     var body: some Scene {
         WindowGroup {
-			NavigationStack {
+			NavigationView {
 				SearchView()
 			}
 			.onAppear {

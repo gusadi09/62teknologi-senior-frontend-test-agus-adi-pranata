@@ -40,7 +40,7 @@ final class BusinessRepositoryTests: XCTestCase {
 	func test_getReviewsOfBusiness() async throws {
 		let expectation = self.expectation(description: "ReviewsOfBusinessesReal")
 
-		let result = try await repository.provideGetReviewsOfBusiness(by: "levain-bakery-new-york")
+		let result = try await repository.provideGetReviewsOfBusiness(by: "levain-bakery-new-york", with: ReviewsQueryParam())
 
 		expectation.fulfill()
 
