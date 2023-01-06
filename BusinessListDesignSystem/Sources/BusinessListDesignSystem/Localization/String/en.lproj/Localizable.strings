@@ -1,0 +1,37 @@
+/* 
+  Localizable.strings
+  
+
+  Created by Gus Adi on 03/01/23.
+  
+*/
+
+"home_tab_text" = "Home";
+"search_tab_text" = "Search";
+"closed_text" = "Closed";
+"filter_text" = "Filter";
+"sort_text" = "Sort";
+"best_match_text" = "Best Match";
+"most_reviewed_text" = "Most Reviews";
+"best_rating_text" = "Best Ratings";
+"hot_and_new_text" = "Hot and New";
+"open_to_all_text" = "Open to All";
+"best_deals_text" = "Best Deals";
+"location_text" = "Location";
+"reviews_text" = "Reviews";
+"price_range_text" = "Price Range";
+"cheap_text" = "Cheap";
+"moderate_text" = "Moderate";
+"expensive_text" = "Expensive";
+"categories_text" = "Categories";
+"rating_text" = "Rating";
+"phone_text" = "Phone Number";
+"featured_transaction_text" = "Featured Transactions";
+"open_hours_text" = "Open Hours";
+"monday_text" = "Monday";
+"tuesday_text" = "Tuesday";
+"wednesday_text" = "Wednesday";
+"thursday_text" = "Thursday";
+"friday_text" = "Friday";
+"saturday_text" = "Saturday";
+"sunday_text" = "Sunday";
