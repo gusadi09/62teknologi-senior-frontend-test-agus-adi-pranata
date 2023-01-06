@@ -17,6 +17,8 @@ final class SearchViewModel: ObservableObject {
 	@Published var isError = false
 	@Published var errorMsg = ""
 
+	@Published var route: BusinessData?
+
 	@Published var isShowFilterSort = false
 
 	@Published var query = BusinessesRequestParam(term: "")

@@ -15,7 +15,9 @@ struct SearchView: View {
 
 	var body: some View {
 		GeometryReader { geo in
-			MainContent(parentViewModel: viewModel, geo: geo)
+			ZStack {
+				MainContent(parentViewModel: viewModel, geo: geo)
+			}
 		}
 		.onAppear {
 			viewModel.onAppear()
@@ -185,9 +187,11 @@ extension SearchView {
 						imageHeight: geo.size.height/3
 					)
 					.shadow(color: .BusinessDefault.basicWhiteBlack.opacity(0.15), radius: 5)
-					.onTapGesture {
-						
-					}
+					.background(
+						NavigationLink(value: item) {
+							EmptyView()
+						}
+					)
 					.onAppear(perform: {
 						parentViewModel.onGetNextPage(item: item)
 					})
@@ -202,6 +206,9 @@ extension SearchView {
 			.listStyle(.plain)
 			.refreshable {
 				await parentViewModel.getListOfBusinesses()
+			}
+			.navigationDestination(for: BusinessData.self) { item in
+				DetailView(viewModel: DetailViewModel(id: item.id.orEmpty()))
 			}
 		}
 	}
