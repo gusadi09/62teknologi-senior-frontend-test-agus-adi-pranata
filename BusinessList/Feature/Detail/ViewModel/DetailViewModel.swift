@@ -8,6 +8,7 @@
 import BusinessListDesignSystem
 import BusinessListData
 import Foundation
+import UIKit
 
 final class DetailViewModel: ObservableObject {
 
@@ -139,6 +140,12 @@ final class DetailViewModel: ObservableObject {
 			self?.isError = false
 			self?.isLoadingReview = true
 			self?.errorMsg = ""
+		}
+	}
+
+	func openURL() {
+		if let url = URL(string: (detail?.messaging?.url).orEmpty()) {
+			UIApplication.shared.open(url)
 		}
 	}
 

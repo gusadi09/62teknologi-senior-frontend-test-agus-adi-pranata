@@ -108,12 +108,13 @@ struct DetailView: View {
 		.navigationTitle(Text(viewModel.name))
 		.navigationBarTitleDisplayMode(.inline)
 		.toolbar {
-			Button {
-
-			} label: {
-				Image(systemName: "paperplane.fill")
+			if !viewModel.isLoading {
+				Button {
+					viewModel.openURL()
+				} label: {
+					Image(systemName: "paperplane.fill")
+				}
 			}
-
 		}
 		.onAppear(perform: {
 			viewModel.onAppear()
