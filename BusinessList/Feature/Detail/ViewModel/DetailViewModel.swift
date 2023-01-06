@@ -9,9 +9,9 @@ import Foundation
 
 final class DetailViewModel: ObservableObject {
 
-	@Published var id: String
+	@Published var alias: String
 
-	init(id: String) {
-		self.id = id
+	init(alias: String) {
+		self.alias = alias
 	}
 }

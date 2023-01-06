@@ -208,7 +208,7 @@ extension SearchView {
 				await parentViewModel.getListOfBusinesses()
 			}
 			.navigationDestination(for: BusinessData.self) { item in
-				DetailView(viewModel: DetailViewModel(id: item.id.orEmpty()))
+				DetailView(viewModel: DetailViewModel(alias: item.alias.orEmpty()))
 			}
 		}
 	}
