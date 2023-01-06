@@ -16,7 +16,8 @@ let package = Package(
     dependencies: [
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
-		.package(path: "../BusinessListData")
+		.package(path: "../BusinessListData"),
+		.package(url: "https://github.com/YAtechnologies/GoogleMaps-SP.git", .upToNextMinor(from: "7.2.0"))
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -24,7 +25,8 @@ let package = Package(
         .target(
             name: "BusinessListDesignSystem",
             dependencies: [
-				"BusinessListData"
+				"BusinessListData",
+				.product(name: "GoogleMaps", package: "GoogleMaps-SP")
 			],
 			resources: [
 				.process("./Localization/String"),

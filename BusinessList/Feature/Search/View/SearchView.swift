@@ -15,7 +15,9 @@ struct SearchView: View {
 
 	var body: some View {
 		GeometryReader { geo in
-			MainContent(parentViewModel: viewModel, geo: geo)
+			ZStack {
+				MainContent(parentViewModel: viewModel, geo: geo)
+			}
 		}
 		.onAppear {
 			viewModel.onAppear()
@@ -184,10 +186,14 @@ extension SearchView {
 						imageWidth: geo.size.width/1.2,
 						imageHeight: geo.size.height/3
 					)
-					.shadow(color: .BusinessDefault.basicWhiteBlack.opacity(0.15), radius: 5)
-					.onTapGesture {
-						
-					}
+					.shadow(color: .BusinessDefault.basicWhiteBlack.opacity(0.2), radius: 5)
+					.background(
+						NavigationLink(destination: {
+							DetailView(viewModel: DetailViewModel(alias: item.alias.orEmpty(), name: item.name.orEmpty()))
+						}, label: {
+							EmptyView()
+						})
+					)
 					.onAppear(perform: {
 						parentViewModel.onGetNextPage(item: item)
 					})

@@ -11,16 +11,12 @@ import Moya
 public enum BusinessTargetType {
 	case getListOfBusinesses(BusinessesRequestParam)
 	case getDetailOfBusiness(String)
+	case getReviewsOfBusiness(String, ReviewsQueryParam)
 }
 
 extension BusinessTargetType: BusinessAppTargetType, AccessTokenAuthorizable {
 	public var authorizationType: Moya.AuthorizationType? {
-		switch self {
-		case .getDetailOfBusiness(_):
-			return .bearer
-		case .getListOfBusinesses(_):
-			return .bearer
-		}
+		return .bearer
 	}
 
 	public var parameterEncoding: Moya.ParameterEncoding {
@@ -37,6 +33,8 @@ extension BusinessTargetType: BusinessAppTargetType, AccessTokenAuthorizable {
 			return param.toJSON()
 		case .getDetailOfBusiness(_):
 			return [:]
+		case .getReviewsOfBusiness(_, let query):
+			return query.toJSON()
 		}
 	}
 
@@ -46,6 +44,8 @@ extension BusinessTargetType: BusinessAppTargetType, AccessTokenAuthorizable {
 			return "/businesses/\(id)"
 		case .getListOfBusinesses(_):
 			return "/businesses/search"
+		case .getReviewsOfBusiness(let id, _):
+			return "/businesses/\(id)/reviews"
 		}
 	}
 
@@ -54,16 +54,13 @@ extension BusinessTargetType: BusinessAppTargetType, AccessTokenAuthorizable {
 		case .getListOfBusinesses(_):
 			return BusinessResponse.sampleData
 		case .getDetailOfBusiness(_):
-			return  DetailBusinessResponse.sampleData
+			return DetailBusinessResponse.sampleData
+		case .getReviewsOfBusiness(_, _):
+			return	ReviewsResponse.sampleData
 		}
 	}
 
 	public var method: Moya.Method {
-		switch self {
-		case .getDetailOfBusiness(_):
-			return .get
-		case .getListOfBusinesses(_):
-			return .get
-		}
+		return .get
 	}
 }

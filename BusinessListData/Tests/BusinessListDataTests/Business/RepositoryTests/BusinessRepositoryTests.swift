@@ -15,7 +15,7 @@ final class BusinessRepositoryTests: XCTestCase {
 	func test_getListOfBusiness() async throws {
 		let expectation = self.expectation(description: "ListOfBusinessesReal")
 
-		let result = try await repository.provideGetListOfBusinesses(with: BusinessesRequestParam())
+		let result = try await repository.provideGetListOfBusinesses(with: BusinessesRequestParam(term: ""))
 
 		expectation.fulfill()
 
@@ -27,7 +27,7 @@ final class BusinessRepositoryTests: XCTestCase {
 	func test_getDetailOfBusiness() async throws {
 		let expectation = self.expectation(description: "DetailOfBusinessesReal")
 
-		let result = try await repository.provideGetListOfBusinesses(with: BusinessesRequestParam())
+		let result = try await repository.provideGetListOfBusinesses(with: BusinessesRequestParam(term: ""))
 		let detail = try await repository.provideGetDetailOfBusiness(by: (result.businesses?.first?.id).orEmpty())
 
 		expectation.fulfill()
@@ -35,5 +35,17 @@ final class BusinessRepositoryTests: XCTestCase {
 		await waitForExpectations(timeout: 5)
 
 		XCTAssertNotNil(detail.name)
+	}
+
+	func test_getReviewsOfBusiness() async throws {
+		let expectation = self.expectation(description: "ReviewsOfBusinessesReal")
+
+		let result = try await repository.provideGetReviewsOfBusiness(by: "levain-bakery-new-york", with: ReviewsQueryParam())
+
+		expectation.fulfill()
+
+		await waitForExpectations(timeout: 5)
+
+		XCTAssertNotNil(result.reviews)
 	}
 }

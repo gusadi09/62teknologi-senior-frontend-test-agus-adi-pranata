@@ -15,6 +15,8 @@
 		ECEFDE50296422A1007507CA /* BusinessListDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = ECEFDE4F296422A1007507CA /* BusinessListDesignSystem */; };
 		ECEFDE5229652443007507CA /* BusinessListData in Frameworks */ = {isa = PBXBuildFile; productRef = ECEFDE5129652443007507CA /* BusinessListData */; };
 		ECEFDE5A2967582D007507CA /* SearchViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEFDE592967582D007507CA /* SearchViewModelTests.swift */; };
+		ECEFDE682967BA77007507CA /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEFDE672967BA77007507CA /* DetailViewModel.swift */; };
+		ECEFDE6A2967BA93007507CA /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEFDE692967BA93007507CA /* DetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +39,8 @@
 		ECD3ADF1295EFB180051647A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		ECEFDE572967582D007507CA /* BusinessListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BusinessListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECEFDE592967582D007507CA /* SearchViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModelTests.swift; sourceTree = "<group>"; };
+		ECEFDE672967BA77007507CA /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		ECEFDE692967BA93007507CA /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,8 +136,8 @@
 		ECD3ADE8295EFB150051647A /* BusinessList */ = {
 			isa = PBXGroup;
 			children = (
+				ECEFDE642967B40F007507CA /* Feature */,
 				ECB57A77295F002600A50A2C /* Common */,
-				ECB57A73295F000B00A50A2C /* Search */,
 				ECD3ADF0295EFB180051647A /* Preview Content */,
 			);
 			path = BusinessList;
@@ -160,6 +164,40 @@
 				ECEFDE592967582D007507CA /* SearchViewModelTests.swift */,
 			);
 			path = BusinessListTests;
+			sourceTree = "<group>";
+		};
+		ECEFDE632967B404007507CA /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				ECEFDE662967BA6B007507CA /* ViewModel */,
+				ECEFDE652967BA66007507CA /* View */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		ECEFDE642967B40F007507CA /* Feature */ = {
+			isa = PBXGroup;
+			children = (
+				ECEFDE632967B404007507CA /* Detail */,
+				ECB57A73295F000B00A50A2C /* Search */,
+			);
+			path = Feature;
+			sourceTree = "<group>";
+		};
+		ECEFDE652967BA66007507CA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ECEFDE692967BA93007507CA /* DetailView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		ECEFDE662967BA6B007507CA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				ECEFDE672967BA77007507CA /* DetailViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,6 +307,8 @@
 				ECD3ADEC295EFB150051647A /* SearchView.swift in Sources */,
 				EC68AFBD295F05390007AC96 /* SearchViewModel.swift in Sources */,
 				ECD3ADEA295EFB150051647A /* BusinessListApp.swift in Sources */,
+				ECEFDE6A2967BA93007507CA /* DetailView.swift in Sources */,
+				ECEFDE682967BA77007507CA /* DetailViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,8 +461,8 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -461,8 +501,8 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";

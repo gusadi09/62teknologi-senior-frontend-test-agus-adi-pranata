@@ -81,9 +81,15 @@ public struct DetailBusinessResponse: Codable {
 }
 
 public struct HoursData: Codable {
-	let open: [OpenData]?
-	let hoursType: String?
-	let isOpenNow: Bool?
+	public let open: [OpenData]?
+	public let hoursType: String?
+	public let isOpenNow: Bool?
+
+	public init(open: [OpenData]?, hoursType: String?, isOpenNow: Bool?) {
+		self.open = open
+		self.hoursType = hoursType
+		self.isOpenNow = isOpenNow
+	}
 
 	enum CodingKeys: String, CodingKey {
 		case open
